@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-chalk: #F1F5F0;
+  --color-paper: #FFFFFF;
+  --color-ink: #10241E;
+  --color-moss: #3A4F45;
+  --color-bottle: #0A5C4A;
+  --color-magenta: #A30F57;
+  --color-cobalt: #1F4FA3;
+  --color-plum: #5E2A7E;
+  --color-ochre: #6F4A00;
+  --font-display: "Familjen Grotesk", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+}
+
+@layer base {
+  html { background: var(--color-chalk); color: var(--color-ink); font-family: var(--font-body); font-size: 17px; line-height: 1.5; }
+  body { min-width: 320px; margin: 0; }
+  h1, h2, h3, button { font-family: var(--font-display); }
+  h1 { font-size: 1.9rem; line-height: 1.15; font-weight: 700; }
+  h2 { font-size: 1.35rem; line-height: 1.2; font-weight: 700; }
+  dialog { margin: auto; }
+}
+
+/* Visible on every surface: an ink ring with a white gap, so it shows on green buttons and on chalk. */
+:focus-visible { outline: 3px solid var(--color-ink); outline-offset: 2px; box-shadow: 0 0 0 2px var(--color-paper); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@keyframes shimmer { 0% { opacity: .55; } 50% { opacity: 1; } 100% { opacity: .55; } }
+.skeleton { background: #d9e2db; border-radius: 4px; animation: shimmer 1.4s ease-in-out infinite; }
